@@ -2,12 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Employee = require("./models/employeeModel");
 const app = express();
+const cors = require('cors');
 
 // Middleware for parsing JSON data
 app.use(express.json());
 
 // Middleware for parsing URL-encoded data
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors());
 
 // Find all employees
 app.get("/employees", async (req, res) => {
